@@ -5,6 +5,11 @@ from datetime import datetime
 
 ai_bp = Blueprint('ai', __name__)
 
+# Health check endpoint - place this first
+@ai_bp.route('/health')
+def health():
+    return jsonify({"status": "healthy", "service": "AI Services"})
+
 # Simulated AI responses for demo purposes
 # In a real implementation, these would call actual AI services like OpenAI, Google AI, etc.
 
